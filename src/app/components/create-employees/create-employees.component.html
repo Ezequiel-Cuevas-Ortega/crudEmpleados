@@ -1,0 +1,33 @@
+<div class="container pt-4">
+    <div class="row">
+        <div class="col-lg-6 offset-lg-3">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h3>{{ title }}</h3>
+                    <div *ngIf="loading" class="spinner-border" role="status">
+                        <span class="sr-only">Loading...</span>
+                      </div>
+                    <span *ngIf="submitted && createEmployee.invalid">Todos los campos son obligatorios</span>
+                    <form class="mt-4" [formGroup]="createEmployee" (ngSubmit)="addEditEmployee()">
+                        <div class="row">
+                            <div class="col mt-1">
+                                <input type="text" class="form-control form-control-lg" formControlName="name" placeholder="nombre" />    
+                            </div>
+                            <div class="col mt-1">
+                                <input type="text" class="form-control form-control-lg" formControlName="lastname" placeholder="Apellido" />    
+                            </div>
+                        </div>
+                        <input type="text" class="form-control form-control-lg mt-3" formControlName="document" placeholder="Documento">
+                        <input type="text" class="form-control form-control-lg mt-3" formControlName="salary" placeholder="Salario">
+                        <input type="text" class="form-control form-control-lg mt-3 mb-3" formControlName="age" placeholder="Edad">
+
+                        <div>
+                            <button type="text" class="btn btn-secondary btn-lg" routerLink="/list-employees"> Volver</button>
+                            <button type="text" class="btn btn-primary btn-lg btn-space">{{ titleBtn }}</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
